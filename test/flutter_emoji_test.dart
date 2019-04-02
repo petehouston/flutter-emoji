@@ -23,4 +23,8 @@ void main() {
   test('emojify a text', () {
     expect('I ❤️ ☕', emoji.emojify('I :heart: :coffee:'));
   });
+
+  test('unemojify a text', () {
+    expect(emoji.unemojify('I ❤️ car'), 'I :heart: car');
+  });
 }

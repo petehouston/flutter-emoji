@@ -12,4 +12,6 @@ emoji.hasEmoji('❤️'); // returns: true
 emoji.getEmoji('❤️'); // returns: 'heart'
 
 emoji.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
+
+emoji.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
 ```
