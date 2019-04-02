@@ -35,4 +35,4 @@ emoji.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
 
 ## License
 
-MIT &copy 2019 [Pete Houston](https://petehouston.com].
+MIT &copy 2019 [Pete Houston](https://petehouston.com).
