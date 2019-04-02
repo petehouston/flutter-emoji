@@ -16,6 +16,6 @@ void main() {
   });
 
   test('emojify a text', () {
-    emoji.emojify('I :heart: :coffee:');
+    expect('I ❤️ ☕', emoji.emojify('I :heart: :coffee:'));
   });
 }
