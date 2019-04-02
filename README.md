@@ -1,4 +1,4 @@
-# flutter-emoji
+# flutter_emoji
 
 Emoji for Flutter app inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
 
@@ -8,7 +8,7 @@ Add this into `pubspec.yaml`
 
 ```
 dependencies:
-  emoji: ">= 1.0.0"
+  flutter_emoji: ">= 1.0.0"
 ```
 
 ## Usage
