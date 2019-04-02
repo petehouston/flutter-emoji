@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Description updated.
+
 ## 1.1.0
 
 - Add `unemojify()`.

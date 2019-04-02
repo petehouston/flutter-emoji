@@ -10,7 +10,7 @@ Add this into `pubspec.yaml`
 
 ```
 dependencies:
-  flutter_emoji: ">= 1.0.0"
+  flutter_emoji: ">= 1.1.1"
 ```
 
 ## Usage
