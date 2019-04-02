@@ -40,6 +40,16 @@ emoji.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
 emoji.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
 ```
 
+## TODO
+
+Features coming to this package:
+
+- [ ] Get detail of an emoji.
+- [ ] Find list of available emojis from a given text.
+- [ ] Replace emoji by another one.
+- [ ] Callback for handling missing emojis on general methods.
+- [ ] Auto-update emoji list.
+
 ## License
 
 [MIT](LICENSE.md) @ 2019 [Pete Houston](https://petehouston.com).
