@@ -1,14 +1,38 @@
-# emoji
+# flutter-emoji
 
-Emoji for Flutter app
+Emoji for Flutter app inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+Add this into `pubspec.yaml`
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```
+dependencies:
+  emoji: ">= 1.0.0"
+```
+
+## Usage
+
+First, import the package:
+
+```
+import 'package:emoji/emoji.dart';
+```
+
+The API is straight-forward:
+
+```
+var emoji = Emoji();
+
+emoji.hasName('coffee'); // returns: true
+emoji.getName('coffee'); // returns: '☕'
+
+emoji.hasEmoji('❤️'); // returns: true
+emoji.getEmoji('❤️'); // returns: 'heart'
+
+emoji.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
+```
+
+## License
+
+MIT &copy 2019 [Pete Houston](https://petehouston.com].
