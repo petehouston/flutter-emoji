@@ -19,6 +19,8 @@ class Emoji {
   String _stripColons(String text) => text.replaceAll(':', '');
   String _ensureColons(String text) => text.startsWith(':', 0) ? text : (':' + text + ':');
 
+  String get(String name) => _emojis[_stripColons(name)];
+
   String getName(String name) => _emojis[name];
   bool hasName(String name) => _emojis.containsKey(name);
 

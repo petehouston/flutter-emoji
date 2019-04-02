@@ -24,6 +24,9 @@ The API is straight-forward:
 ```
 var emoji = Emoji();
 
+emoji.get('coffee');   // returns: '☕'
+emoji.get(':coffee:'); // returns: '☕'
+
 emoji.hasName('coffee'); // returns: true
 emoji.getName('coffee'); // returns: '☕'
 
