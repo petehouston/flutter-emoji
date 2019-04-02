@@ -1,6 +1,8 @@
 # flutter_emoji
 
-Emoji for Flutter app inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
+👉 A light-weight Emoji 📦 for Flutter with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!
+
+Inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
 
 ## Installation
 
