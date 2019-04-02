@@ -16,7 +16,7 @@ dependencies:
 First, import the package:
 
 ```
-import 'package:emoji/emoji.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
 ```
 
 The API is straight-forward:
