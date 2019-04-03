@@ -1,3 +1,7 @@
+## 2.1.0
+
+- Fix issue: (temp solution) around 600+ emojis not being matched.
+
 ## 2.0.0
 
 *Breaking changes*
