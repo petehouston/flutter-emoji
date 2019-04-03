@@ -13,7 +13,7 @@ before_script:
 - git clone https://github.com/flutter/flutter.git -b stable
 - ./flutter/bin/flutter doctor
 script:
-- ./flutter/bin/flutter test -coverage --coverage-path=lcov.info
+- ./flutter/bin/flutter test --coverage --coverage-path=lcov.info
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 cache:
