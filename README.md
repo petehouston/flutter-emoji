@@ -1,5 +1,7 @@
 # flutter_emoji
 
+[![Build Status](https://travis-ci.com/petehouston/flutter-emoji.svg?branch=master)](https://travis-ci.com/petehouston/flutter-emoji)
+
 👉 A light-weight Emoji 📦 for Flutter with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!
 
 Inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
