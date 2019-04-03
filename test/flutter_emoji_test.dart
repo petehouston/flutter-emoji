@@ -95,6 +95,7 @@ void main() {
 
   test('unemojify a text', () {
     expect(emojiParser.unemojify('I ❤️ car'), 'I :heart: car');
+    expect(emojiParser.unemojify('I ❤️ ☕'), 'I :heart: :coffee:');
 
     expect(emojiParser.unemojify('I heart car'), 'I heart car');
     expect(emojiParser.unemojify('I :heart: car'), 'I :heart: car');
