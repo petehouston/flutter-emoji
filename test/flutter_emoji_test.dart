@@ -21,6 +21,16 @@ void main() {
     expect(emoji.getName(':does_not_exist:'), null);
   });
 
+  test('emoji info', () {
+    var heart = emoji.info('heart');
+    expect(heart != null, true);
+
+    expect(heart is Map<String, dynamic>, true);
+    expect(heart['name'], 'heart');
+    expect(heart['full'], ':heart:');
+    expect(heart['emoji'], '❤️');
+  });
+
   test('emoji code', () {
     expect(emoji.hasEmoji('❤️'), true);
     expect(emoji.getEmoji('❤️'), 'heart');

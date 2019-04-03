@@ -47,6 +47,28 @@ class Emoji {
   String getName(String name) => _emojis[name];
   bool hasName(String name) => _emojis.containsKey(name);
 
+  ///
+  /// Get info for an emoji.
+  ///
+  /// Return a Map<String, dynamic> with 3 presented keys: 'name', 'full', 'emoji'
+  ///
+  /// For example:
+  ///
+  ///   var emoji = Emoji();
+  ///   var heart_info = emoji.info('heart');
+  ///   print(heart_info); '{name: heart, full: :heart:, emoji: ❤️}'
+  ///
+  Map<String, dynamic> info(String name) {
+    Map<String, dynamic> emoji = Map<String, dynamic>();
+    if (hasName(name)) {
+      emoji['name'] = name;
+      emoji['full'] = _ensureColons(name);
+      emoji['emoji'] = get(name);
+    }
+
+    return emoji;
+  }
+
   // Emoji code has no non-spacing-mark
   String getEmoji(String emoji) => _emojisByCode[_stripNSM(emoji)];
 

@@ -44,7 +44,7 @@ emoji.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
 
 Features coming to this package:
 
-- [ ] Get detail of an emoji.
+- [x] Get detail of an emoji.
 - [ ] Find list of available emojis from a given text.
 - [ ] Replace emoji by another one.
 - [ ] Callback for handling missing emojis on general methods.
