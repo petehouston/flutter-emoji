@@ -1,3 +1,11 @@
+## 2.0.0
+
+*Breaking changes*
+- New `Emoji` class now acts like a data container.
+- New `EmojiParser` class to handle emoji operation, like `get()`, `emojify()`...
+- New `EmojiUtil` class to handle common operations for normalizing emoji.
+- Update documentation.
+
 ## 1.1.1
 
 - Description updated.
