@@ -12,6 +12,10 @@ void main() {
 
     expect(emojiCoffee == coffee, true);
 
+    expect(coffee.name == 'coffee', true);
+    expect(coffee.full == ':coffee:', true);
+    expect(coffee.code == '☕', true);
+
     expect(emojiCoffee.toString(),
         'Emoji{name="coffee", full=":coffee:", code="☕"}');
 
