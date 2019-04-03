@@ -39,17 +39,23 @@ heart == emojiHeart;  // returns: true
 heart == emojiCoffee; // returns: false
 
 // Get emoji by name or code
-emoji.get('coffee');   // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
-emoji.get(':coffee:'); // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
+parser.get('coffee');   // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
+parser.get(':coffee:'); // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
 
-emoji.hasName('coffee'); // returns: true
-emoji.getName('coffee'); // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
+parser.hasName('coffee'); // returns: true
+parser.getName('coffee'); // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
 
-emoji.hasEmoji('❤️'); // returns: true
-emoji.getEmoji('❤️'); // returns: Emoji{name="heart", full=":heart:", code="❤️"}
+parser.hasEmoji('❤️'); // returns: true
+parser.getEmoji('❤️'); // returns: Emoji{name="heart", full=":heart:", code="❤️"}
 
-emoji.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
-emoji.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
+parser.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
+parser.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
+```
+
+All methods will return `Emoji.None` if emoji is not found.
+
+```
+parser.get('does_not_exist_emoji_name'); // returns: Emoji.None
 ```
 
 ## TODO
