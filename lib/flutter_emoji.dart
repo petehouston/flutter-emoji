@@ -1,4 +1,4 @@
-library emoji;
+library flutter_emoji;
 
 import 'dart:convert';
 
