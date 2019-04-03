@@ -51,6 +51,7 @@ Features coming to this package:
 - [ ] Replace emoji by another one.
 - [ ] Callback for handling missing emojis on general methods.
 - [ ] Auto-update emoji list.
+- [ ] Make extensible emoji matcher.
 
 ## License
 
