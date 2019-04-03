@@ -1,6 +1,6 @@
 # flutter_emoji
 
-[![Build Status](https://travis-ci.com/petehouston/flutter-emoji.svg?branch=master)](https://travis-ci.com/petehouston/flutter-emoji)
+[![Build Status](https://travis-ci.com/petehouston/flutter-emoji.svg?branch=master)](https://travis-ci.com/petehouston/flutter-emoji) [![Coverage](https://codecov.io/gh/petehouston/flutter-emoji/branch/master/graph/badge.svg)](https://codecov.io/gh/petehouston/flutter-emoji)
 
 👉 A light-weight Emoji 📦 for Flutter with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!
 
