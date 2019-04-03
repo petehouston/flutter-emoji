@@ -11,6 +11,10 @@ class EmojiConst {
   static final String charEmpty = '';
 }
 
+class EmojiMessage {
+  static final String errorMalformedEmojiName = 'Malformed emoji name';
+}
+
 ///
 /// Utilities to handle emoji operations.
 ///
@@ -19,28 +23,44 @@ class EmojiUtil {
   /// Strip colons for emoji name.
   /// So, ':heart:' will become 'heart'.
   ///
-  static String stripColons(String text) =>
-      text.replaceAll(EmojiConst.charColon, EmojiConst.charEmpty);
+  static String stripColons(String name, [void onError(String message)]) {
+    Iterable<Match> matches = EmojiParser.REGEX_NAME.allMatches(name);
+    if (matches.isEmpty) {
+      if (onError != null) {
+        onError(EmojiMessage.errorMalformedEmojiName);
+      }
+      return name;
+    }
+    return name.replaceAll(EmojiConst.charColon, EmojiConst.charEmpty);
+  }
 
   ///
   /// Wrap colons on both sides of emoji name.
   /// So, 'heart' will become ':heart:'.
   ///
-  static String ensureColons(String text) =>
-      text.startsWith(EmojiConst.charColon, 0)
-          ? text
-          : (EmojiConst.charColon + text + EmojiConst.charColon);
+  static String ensureColons(String name) {
+    String res = name;
+    if (!name.startsWith(EmojiConst.charColon, 0)) {
+      res = EmojiConst.charColon + name;
+    }
+
+    if (!name.endsWith(EmojiConst.charColon)) {
+      res += EmojiConst.charColon;
+    }
+
+    return res;
+  }
 
   ///
   /// When processing emojis, we don't need to store the graphical byte
   /// which is 0xfe0f, or so-called 'Non-Spacing Mark'.
   ///
-  static String stripNSM(String text) => text.replaceAll(
+  static String stripNSM(String name) => name.replaceAll(
       RegExp(EmojiConst.charNonSpacingMark), EmojiConst.charEmpty);
 }
 
 ///
-/// The representation of an emoji
+/// The representation of an emoji.
 /// There are three properties availables:
 ///   - 'name' : the emoji name (no colon)
 ///   - 'full' : the full emoji name. It is name with colons on both sides.

@@ -7,6 +7,33 @@ void main() {
   var emojiCoffee = Emoji('coffee', '☕');
   var emojiHeart = Emoji('heart', '❤️');
 
+  test('EmojiUtil.stripColons()', () {
+    expect(EmojiUtil.stripColons('coffee'), 'coffee');
+    expect(
+        EmojiUtil.stripColons('coffee', (error) {
+          expect(error, EmojiMessage.errorMalformedEmojiName);
+        }),
+        'coffee');
+    expect(EmojiUtil.stripColons(':coffee:', (error) {}), 'coffee');
+    expect(EmojiUtil.stripColons(':coff ee:'), ':coff ee:');
+    expect(EmojiUtil.stripColons(':grey_question:'), 'grey_question');
+    expect(EmojiUtil.stripColons('grey_question:'), 'grey_question:');
+  });
+
+  test('EmojiUtil.ensureColons()', () {
+    expect(EmojiUtil.ensureColons('coffee'), ':coffee:');
+    expect(EmojiUtil.ensureColons(':coffee'), ':coffee:');
+    expect(EmojiUtil.ensureColons('coffee:'), ':coffee:');
+    expect(EmojiUtil.ensureColons(':coffee:'), ':coffee:');
+  });
+
+  test('EmojiUtil.stripNSM()', () {
+    expect(EmojiUtil.stripNSM(String.fromCharCodes(Runes('\u2764\ufe0f'))),
+        String.fromCharCodes(Runes('\u2764')));
+    expect(EmojiUtil.stripNSM(String.fromCharCodes(Runes('\u2764'))),
+        String.fromCharCodes(Runes('\u2764')));
+  });
+
   test('emoji creation & equality', () {
     var coffee = Emoji('coffee', '☕');
 
