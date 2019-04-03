@@ -87,8 +87,8 @@ class Emoji {
     return this.name == other.name && this.code == other.code;
   }
 
-  Emoji clone(Emoji other) {
-    return Emoji(other.name, other.code);
+  Emoji clone() {
+    return Emoji(name, code);
   }
 
   @override

@@ -49,6 +49,12 @@ void main() {
     expect(emojiCoffee.toString() == coffee.toString(), true);
   });
 
+  test('emoji clone', () {
+    var coffee = emojiCoffee.clone();
+
+    expect(coffee == emojiCoffee, true);
+  });
+
   test('get', () {
     expect(emojiParser.get('coffee'), emojiCoffee);
     expect(emojiParser.get(':coffee:'), emojiCoffee);
