@@ -7,6 +7,17 @@ void main() {
   var emojiCoffee = Emoji('coffee', '☕');
   var emojiHeart = Emoji('heart', '❤️');
 
+  test('emoji creation & equality', () {
+    var coffee = Emoji('coffee', '☕');
+
+    expect(emojiCoffee == coffee, true);
+
+    expect(emojiCoffee.toString(),
+        'Emoji{name="coffee", full=":coffee:", code="☕"}');
+
+    expect(emojiCoffee.toString() == coffee.toString(), true);
+  });
+
   test('get', () {
     expect(emojiParser.get('coffee'), emojiCoffee);
     expect(emojiParser.get(':coffee:'), emojiCoffee);

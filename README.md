@@ -10,10 +10,10 @@ Add this into `pubspec.yaml`
 
 ```
 dependencies:
-  flutter_emoji: ">= 1.1.1"
+  flutter_emoji: ">= 2.0.0"
 ```
 
-## Usage
+## API Usage
 
 First, import the package:
 
@@ -21,25 +21,35 @@ First, import the package:
 import 'package:flutter_emoji/flutter_emoji.dart';
 ```
 
-The API is straight-forward:
+There are two main classes you need to know to handle Emoji text: `Emoji` and `EmojiParser`.
+
+Basically, you need to initialize an instance of `EmojiParser`.
 
 ```
-var emoji = Emoji();
+var parser = EmojiParser();
+var coffee = Emoji('coffee', '☕');
+var heart  = Emoji('heart', '❤️');
 
-emoji.get('coffee');   // returns: '☕'
-emoji.get(':coffee:'); // returns: '☕'
+// Get emoji info
+var emojiHeart = parser.info('heart');
+print(emojiHeart); '{name: heart, full: :heart:, code: ❤️}'
+
+// Check emoji equality
+heart == emojiHeart;  // returns: true
+heart == emojiCoffee; // returns: false
+
+// Get emoji by name or code
+emoji.get('coffee');   // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
+emoji.get(':coffee:'); // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
 
 emoji.hasName('coffee'); // returns: true
-emoji.getName('coffee'); // returns: '☕'
+emoji.getName('coffee'); // returns: Emoji{name="coffee", full=":coffee:", code="☕"}
 
 emoji.hasEmoji('❤️'); // returns: true
-emoji.getEmoji('❤️'); // returns: 'heart'
+emoji.getEmoji('❤️'); // returns: Emoji{name="heart", full=":heart:", code="❤️"}
 
 emoji.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
-
 emoji.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
-
-emoji.info('heart'); // returns: '{name: heart, full: :heart:, emoji: ❤️}'
 ```
 
 ## TODO
@@ -47,6 +57,8 @@ emoji.info('heart'); // returns: '{name: heart, full: :heart:, emoji: ❤️}'
 Features coming to this package:
 
 - [x] Get detail of an emoji.
+- [x] Refactor for easier usage.
+- [ ] Validate bad input.
 - [ ] Find list of available emojis from a given text.
 - [ ] Replace emoji by another one.
 - [ ] Callback for handling missing emojis on general methods.

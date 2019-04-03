@@ -68,10 +68,14 @@ class Emoji {
 
   @override
   String toString() {
-    return 'Emoji{name="$name", code="$code"}';
+    return 'Emoji{name="$name", full="$full", code="$code"}';
   }
 }
 
+///
+/// Emoji storage and parser.
+/// You will need to instantiate one of this instance to start using.
+///
 class EmojiParser {
   ///
   /// This regex is insane, borrowed from lodash, a Javascript library.
