@@ -139,7 +139,8 @@ class EmojiParser {
       _emojisByName[EmojiUtil.stripColons(name)] ?? Emoji.None;
 
   Emoji getName(String name) => get(name) ?? Emoji.None;
-  bool hasName(String name) => _emojisByName.containsKey(name);
+  bool hasName(String name) =>
+      _emojisByName.containsKey(EmojiUtil.stripColons(name));
 
   ///
   /// Get info for an emoji.

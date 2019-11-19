@@ -68,6 +68,9 @@ void main() {
     expect(emojiParser.hasName('coffee'), true);
     expect(emojiParser.getName('coffee'), emojiCoffee);
 
+    expect(emojiParser.hasName(':coffee:'), true);
+    expect(emojiParser.getName(':coffee:'), emojiCoffee);
+
     expect(emojiParser.hasName('does_not_exist'), false);
     expect(emojiParser.getName(':does_not_exist:'), Emoji.None);
   });
