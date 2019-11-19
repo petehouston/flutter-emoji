@@ -18,6 +18,7 @@ void main() {
     expect(EmojiUtil.stripColons(':coff ee:'), ':coff ee:');
     expect(EmojiUtil.stripColons(':grey_question:'), 'grey_question');
     expect(EmojiUtil.stripColons('grey_question:'), 'grey_question:');
+    expect(EmojiUtil.stripColons(':e-mail:'), 'e-mail');
   });
 
   test('EmojiUtil.ensureColons()', () {
