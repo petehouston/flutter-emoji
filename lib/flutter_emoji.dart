@@ -114,7 +114,7 @@ class EmojiParser {
   /// TODO: improve this version, since it does not match the graphical bytes.
   static final RegExp REGEX_EMOJI = RegExp(r'(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])');
 
-  static final RegExp REGEX_NAME = RegExp(r":(\w+):");
+  static final RegExp REGEX_NAME = RegExp(r":([\w-]+):");
 
   ///
   /// Data source for Emoji.
@@ -139,7 +139,8 @@ class EmojiParser {
       _emojisByName[EmojiUtil.stripColons(name)] ?? Emoji.None;
 
   Emoji getName(String name) => get(name) ?? Emoji.None;
-  bool hasName(String name) => _emojisByName.containsKey(name);
+  bool hasName(String name) =>
+      _emojisByName.containsKey(EmojiUtil.stripColons(name));
 
   ///
   /// Get info for an emoji.

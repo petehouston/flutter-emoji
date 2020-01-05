@@ -18,6 +18,7 @@ void main() {
     expect(EmojiUtil.stripColons(':coff ee:'), ':coff ee:');
     expect(EmojiUtil.stripColons(':grey_question:'), 'grey_question');
     expect(EmojiUtil.stripColons('grey_question:'), 'grey_question:');
+    expect(EmojiUtil.stripColons(':e-mail:'), 'e-mail');
   });
 
   test('EmojiUtil.ensureColons()', () {
@@ -66,6 +67,9 @@ void main() {
   test('emoji name', () {
     expect(emojiParser.hasName('coffee'), true);
     expect(emojiParser.getName('coffee'), emojiCoffee);
+
+    expect(emojiParser.hasName(':coffee:'), true);
+    expect(emojiParser.getName(':coffee:'), emojiCoffee);
 
     expect(emojiParser.hasName('does_not_exist'), false);
     expect(emojiParser.getName(':does_not_exist:'), Emoji.None);
