@@ -1,3 +1,7 @@
+## 2.2.0
+
+- Fix issue: emojis with dash `-` in name are not parsed. 
+
 ## 2.1.0
 
 - Fix issue: (temp solution) around 600+ emojis not being matched.
