@@ -6,6 +6,7 @@ void main() {
   var emojiParser = EmojiParser();
   var emojiCoffee = Emoji('coffee', '☕');
   var emojiHeart = Emoji('heart', '❤️');
+  var emojiFlagUS = Emoji('flag-us', '🇺🇸'); // "flag-us":"🇺🇸"
 
   test('EmojiUtil.stripColons()', () {
     expect(EmojiUtil.stripColons('coffee'), 'coffee');
@@ -70,6 +71,9 @@ void main() {
 
     expect(emojiParser.hasName(':coffee:'), true);
     expect(emojiParser.getName(':coffee:'), emojiCoffee);
+
+    expect(emojiParser.hasName('flag-us'), true);
+    expect(emojiParser.getName('flag-us'), emojiFlagUS);
 
     expect(emojiParser.hasName('does_not_exist'), false);
     expect(emojiParser.getName(':does_not_exist:'), Emoji.None);
