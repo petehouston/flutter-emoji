@@ -114,4 +114,20 @@ void main() {
     expect(emojiParser.unemojify('I heart car'), 'I heart car');
     expect(emojiParser.unemojify('I :heart: car'), 'I :heart: car');
   });
+
+  test('emoji name includes some special characters', () {
+    var emoji;
+
+    // "umbrella_with_rain_drops":"☔"
+    emoji = Emoji('umbrella_with_rain_drops', '☔');
+    expect(emojiParser.get('umbrella_with_rain_drops'), emoji);
+
+    // "male-scientist":"👨‍🔬"
+    emoji = Emoji('male-scientist', '👨‍🔬');
+    expect(emojiParser.get('male-scientist'), emoji);
+
+    // "+1":"👍"
+    emoji = Emoji('+1', '👍');
+    expect(emojiParser.get('+1'), emoji);
+  });
 }
