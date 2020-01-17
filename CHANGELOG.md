@@ -1,3 +1,7 @@
+## 2.2.1
+
+- Fix [issue #6](https://github.com/petehouston/flutter-emoji/issues/6): fail to parse `:+1:` emoji.
+
 ## 2.2.0
 
 - Fix issue: emojis with dash `-` in name are not parsed. 
