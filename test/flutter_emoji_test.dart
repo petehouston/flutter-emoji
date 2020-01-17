@@ -105,6 +105,8 @@ void main() {
     expect(emojiParser.emojify('I :love :coffee'), 'I :love :coffee');
     expect(emojiParser.emojify('I love: :coffee'), 'I love: :coffee');
     expect(emojiParser.emojify('I love: coffee:'), 'I love: coffee:');
+
+    expect(emojiParser.emojify('I :+1: with him'), 'I 👍 with him');
   });
 
   test('unemojify a text', () {
@@ -113,6 +115,10 @@ void main() {
 
     expect(emojiParser.unemojify('I heart car'), 'I heart car');
     expect(emojiParser.unemojify('I :heart: car'), 'I :heart: car');
+
+    // NOTE: both :+1: and :thumbsup: represent same emoji 👍
+    // When calling unemojify() only the latter one is mapped.
+    expect(emojiParser.unemojify('I 👍 with him'), 'I :thumbsup: with him');
   });
 
   test('emoji name includes some special characters', () {

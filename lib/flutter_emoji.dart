@@ -114,7 +114,7 @@ class EmojiParser {
   /// TODO: improve this version, since it does not match the graphical bytes.
   static final RegExp REGEX_EMOJI = RegExp(r'(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])');
 
-  static final RegExp REGEX_NAME = RegExp(r":([\w-]+):");
+  static final RegExp REGEX_NAME = RegExp(r":([\w-+]+):");
 
   ///
   /// Data source for Emoji.
