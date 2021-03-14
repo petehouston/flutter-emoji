@@ -24,7 +24,7 @@ class EmojiUtil {
   /// Strip colons for emoji name.
   /// So, ':heart:' will become 'heart'.
   ///
-  static String stripColons(String name, [void onError(String message)]) {
+  static String stripColons(String name, [void onError(String message)?]) {
     Iterable<Match> matches = EmojiParser.REGEX_NAME.allMatches(name);
     if (matches.isEmpty) {
       if (onError != null) {
@@ -84,6 +84,10 @@ class Emoji {
 
   @override
   bool operator ==(other) {
+    if (other is! Emoji) {
+      return false;
+    }
+
     return this.name == other.name && this.code == other.code;
   }
 
@@ -138,7 +142,7 @@ class EmojiParser {
   Emoji get(String name) =>
       _emojisByName[EmojiUtil.stripColons(name)] ?? Emoji.None;
 
-  Emoji getName(String name) => get(name) ?? Emoji.None;
+  Emoji getName(String name) => get(name);
   bool hasName(String name) =>
       _emojisByName.containsKey(EmojiUtil.stripColons(name));
 
@@ -186,9 +190,12 @@ class EmojiParser {
     if (matches.isNotEmpty) {
       String result = text;
       matches.toList().forEach((m) {
-        var _e = EmojiUtil.stripColons(m.group(0));
-        if (hasName(_e)) {
-          result = result.replaceAll(m.group(0), get(_e).code);
+        var _m0 = m.group(0);
+        if (_m0 != null) {
+          var _e = EmojiUtil.stripColons(_m0);
+          if (hasName(_e)) {
+            result = result.replaceAll(_m0, get(_e).code);
+          }
         }
       });
       return result;
@@ -207,11 +214,16 @@ class EmojiParser {
     if (matches.isNotEmpty) {
       String result = text;
       matches.toList().forEach((m) {
-        if (hasEmoji(m.group(0))) {
-          result = result.replaceAll(m.group(0), getEmoji(m.group(0)).full);
-          /// Just a quick hack to clear graphical byte from emoji.
-          /// TODO: find better way to get through this tweak
-          result = result.replaceAll(EmojiConst.charNonSpacingMark, EmojiConst.charEmpty);
+        var _m0 = m.group(0);
+        if (_m0 != null) {
+          if (hasEmoji(_m0)) {
+            result = result.replaceAll(_m0, getEmoji(_m0).full);
+
+            /// Just a quick hack to clear graphical byte from emoji.
+            /// TODO: find better way to get through this tweak
+            result = result.replaceAll(
+                EmojiConst.charNonSpacingMark, EmojiConst.charEmpty);
+          }
         }
       });
       return result;
