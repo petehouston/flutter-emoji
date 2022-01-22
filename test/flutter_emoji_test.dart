@@ -95,16 +95,22 @@ void main() {
   });
 
   test('emojify a text', () {
-    expect(emojiParser.emojify('I :heart: :coffee:'), 'I ❤️ ☕');
+    // expect(emojiParser.emojify('I :heart: :coffee:'), 'I ❤️ ☕');
+    //
+    // expect(emojiParser.emojify('I :love coffee:'), 'I :love coffee:');
+    // expect(emojiParser.emojify('I :love :coffee'), 'I :love :coffee');
+    // expect(emojiParser.emojify('I love: :coffee'), 'I love: :coffee');
+    // expect(emojiParser.emojify('I love: coffee:'), 'I love: coffee:');
+    //
+    // expect(emojiParser.emojify('I :+1: with him'), 'I 👍 with him');
+    // expect(emojiParser.emojify('I :heart_on_fire: Flutter so much'),
+    //     'I ❤️‍🔥 Flutter so much');
 
-    expect(emojiParser.emojify('I :love coffee:'), 'I :love coffee:');
-    expect(emojiParser.emojify('I :love :coffee'), 'I :love :coffee');
-    expect(emojiParser.emojify('I love: :coffee'), 'I love: :coffee');
-    expect(emojiParser.emojify('I love: coffee:'), 'I love: coffee:');
-
-    expect(emojiParser.emojify('I :+1: with him'), 'I 👍 with him');
-    expect(emojiParser.emojify('I :heart_on_fire: Flutter so much'),
-        'I ❤️‍🔥 Flutter so much');
+    expect(
+        emojiParser.emojify('I :+1: with him', fnFormat: (code) {
+          return 'totally ' + code;
+        }),
+        'I totally 👍 with him');
   });
 
   test('unemojify a text', () {

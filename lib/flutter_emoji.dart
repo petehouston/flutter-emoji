@@ -188,7 +188,7 @@ class EmojiParser {
   ///
   /// For example: 'I :heart: :coffee:' => 'I ❤️ ☕'
   ///
-  String emojify(String text) {
+  String emojify(String text, {String Function(String)? fnFormat}) {
     Iterable<Match> matches = REGEX_NAME.allMatches(text);
     if (matches.isNotEmpty) {
       var result = text;
@@ -197,8 +197,12 @@ class EmojiParser {
         if (_e == null || m.group(0) == null) continue;
         if (hasName(_e)) {
           var pattern = RegExp.escape(m.group(0)!);
+          var formattedCode = get(_e).code;
+          if (fnFormat != null) {
+            formattedCode = fnFormat(formattedCode);
+          }
           result =
-              result.replaceAll(RegExp(pattern, unicode: true), get(_e).code);
+              result.replaceAll(RegExp(pattern, unicode: true), formattedCode);
         }
       }
       return result;
