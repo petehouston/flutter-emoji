@@ -288,4 +288,21 @@ class EmojiParser {
     }
     return buffer.toString();
   }
+
+  ///
+  /// Return a list of emojis found in the input text
+  ///
+  /// For example: parseEmojis('I ❤️ Flutter just like ☕') => ['❤️', '☕']
+  ///
+  List<String> parseEmojis(String text) {
+    if (text.isEmpty) return List.empty();
+
+    List<String> result = <String>[];
+    for (final character in text.characters) {
+      if (hasEmoji(character)) {
+        result.add(character);
+      }
+    }
+    return result;
+  }
 }
