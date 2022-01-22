@@ -236,4 +236,36 @@ class EmojiParser {
     }
     return buffer.toString();
   }
+
+  ///
+  /// Count number of emoji containing in the text.
+  ///
+  /// For example: count('I ❤️ Flutter just like ☕') = 2
+  int count(String text) {
+    if (text.isEmpty) return 0;
+
+    int cnt = 0;
+    for (final character in text.characters) {
+      if (hasEmoji(character)) {
+        cnt++;
+      }
+    }
+    return cnt;
+  }
+
+  ///
+  /// Count frequency of emoji containing in the text.
+  ///
+  /// For example: frequency('I ❤️ Flutter just like ☕', '❤️') = 1
+  int frequency(String text, String symbol) {
+    if (text.isEmpty) return 0;
+
+    int cnt = 0;
+    for (final character in text.characters) {
+      if (character == symbol) {
+        cnt++;
+      }
+    }
+    return cnt;
+  }
 }

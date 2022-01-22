@@ -143,4 +143,23 @@ void main() {
     emoji = Emoji('+1', '👍');
     expect(emojiParser.get('+1'), emoji);
   });
+
+  test('count emojis', () {
+    expect(emojiParser.count(''), 0);
+    expect(emojiParser.count('I love'), 0);
+    expect(emojiParser.count('I ❤️ ☕'), 2);
+    expect(emojiParser.count('I ❤️‍🔥 Flutter so much'), 1);
+  });
+
+  test('count emoji frequency', () {
+    expect(emojiParser.frequency('', '❤️'), 0);
+    expect(emojiParser.frequency('I love', '❤️'), 0);
+    expect(emojiParser.frequency('I ❤️ ☕', '❤️'), 1);
+    expect(
+        emojiParser.frequency(
+            'I ❤️ ☕, they also ❤️ as much as I ❤️ coffee', '❤️'),
+        3);
+    expect(emojiParser.frequency('I ❤️‍🔥 Flutter so much', '❤️'), 0);
+    expect(emojiParser.frequency('I ❤️‍🔥 Flutter so much', '❤️‍🔥'), 1);
+  });
 }
