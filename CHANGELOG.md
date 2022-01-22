@@ -1,3 +1,7 @@
+## 2.3.3
+
+- Add new list of emojis.
+
 ## 2.3.2
 
 - Replace 'pedantic' by 'lint'.
