@@ -8,6 +8,8 @@
 
 Inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
 
+**Update: since v2.3.4+, support all emojis listed in [Unicode 13.0](https://unicode.org/versions/Unicode13.0.0/).**
+
 ## Installation
 
 Add this into `pubspec.yaml`
