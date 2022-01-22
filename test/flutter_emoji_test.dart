@@ -104,6 +104,8 @@ void main() {
     expect(emojiParser.emojify('I love: coffee:'), 'I love: coffee:');
 
     expect(emojiParser.emojify('I :+1: with him'), 'I 👍 with him');
+    expect(emojiParser.emojify('I :heart_on_fire: Flutter so much'),
+        'I ❤️‍🔥 Flutter so much');
   });
 
   test('unemojify a text', () {
