@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/petehouston/flutter-emoji.svg?branch=master)](https://travis-ci.com/petehouston/flutter-emoji) [![Coverage](https://codecov.io/gh/petehouston/flutter-emoji/branch/master/graph/badge.svg)](https://codecov.io/gh/petehouston/flutter-emoji)
 
+[![Null Safety](https://img.shields.io/badge/Null%20Safety-YES-brightgreen)](https://img.shields.io/badge/Null%20Safety-YES-brightgreen)
+
 👉 A light-weight Emoji 📦 for Flutter with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!
 
 Inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
