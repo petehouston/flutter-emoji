@@ -162,4 +162,9 @@ void main() {
     expect(emojiParser.frequency('I ❤️‍🔥 Flutter so much', '❤️'), 0);
     expect(emojiParser.frequency('I ❤️‍🔥 Flutter so much', '❤️‍🔥'), 1);
   });
+
+  test('replace emoji', () {
+    expect(emojiParser.replace('', '❤️', '❤️‍🔥'), null);
+    expect(emojiParser.replace('I ❤️ coffee', '❤️', '❤️‍🔥'), 'I ❤️‍🔥 coffee');
+  });
 }

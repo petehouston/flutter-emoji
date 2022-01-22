@@ -257,6 +257,7 @@ class EmojiParser {
   /// Count frequency of emoji containing in the text.
   ///
   /// For example: frequency('I ❤️ Flutter just like ☕', '❤️') = 1
+  ///
   int frequency(String text, String symbol) {
     if (text.isEmpty) return 0;
 
@@ -267,5 +268,24 @@ class EmojiParser {
       }
     }
     return cnt;
+  }
+
+  ///
+  /// Replace an emoji by another emoji.
+  ///
+  /// For example: replace('I ❤️ coffee', '❤️', '❤️‍🔥') => 'I ❤️‍🔥 coffee'
+  ///
+  String? replace(String text, String fromSymbol, String toSymbol) {
+    if (text.isEmpty) return null;
+
+    final buffer = StringBuffer();
+    for (final character in text.characters) {
+      if (character == fromSymbol) {
+        buffer.write(toSymbol);
+      } else {
+        buffer.write(character);
+      }
+    }
+    return buffer.toString();
   }
 }
