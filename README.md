@@ -73,9 +73,9 @@ Features coming to this package:
 - [x] Get detail of an emoji.
 - [x] Refactor for easier usage.
 - [x] Validate bad input.
-- [ ] Find list of available emojis from a given text.
-- [ ] Replace emoji by another one.
-- [ ] Callback for handling missing emojis on general methods.
+- [x] Find list of available emojis from a given text.
+- [x] Replace emoji by another one.
+- [x] Callback for additional formatting found emojis.
 - [ ] Auto-update emoji list.
 - [ ] Make extensible emoji matcher.
 
