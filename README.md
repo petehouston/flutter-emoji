@@ -54,7 +54,7 @@ parser.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
 parser.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
 ```
 
-All methods will return `Emoji.None` if emoji is not found.
+All methods will return `Emoji.None` if emoji is not found, except these two `emojify()` and `unemojify()` that will return original input.
 
 ```
 parser.get('does_not_exist_emoji_name'); // returns: Emoji.None
@@ -66,7 +66,7 @@ Features coming to this package:
 
 - [x] Get detail of an emoji.
 - [x] Refactor for easier usage.
-- [ ] Validate bad input.
+- [x] Validate bad input.
 - [ ] Find list of available emojis from a given text.
 - [ ] Replace emoji by another one.
 - [ ] Callback for handling missing emojis on general methods.
