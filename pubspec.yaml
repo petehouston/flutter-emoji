@@ -1,10 +1,10 @@
 name: flutter_emoji
 description: "👉 A light-weight Emoji 📦 for Flutter with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!"
-version: 2.3.0
+version: 2.3.1
 homepage: "https://github.com/petehouston/flutter-emoji"
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:

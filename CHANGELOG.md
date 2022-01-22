@@ -1,3 +1,7 @@
+## 2.3.1
+
+- Update sdk constraints to null safety. Reference: [SDK Constraints](https://dart.dev/null-safety#constraints).
+
 ## 2.3.0
 
 - Update dependencies.
