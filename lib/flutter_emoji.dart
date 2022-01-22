@@ -186,7 +186,7 @@ class EmojiParser {
   ///
   /// For example: 'I :heart: :coffee:' => 'I ❤️ ☕'
   ///
-  String? emojify(String text) {
+  String emojify(String text) {
     Iterable<Match> matches = REGEX_NAME.allMatches(text);
     if (matches.isNotEmpty) {
       var result = text;
