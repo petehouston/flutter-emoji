@@ -1,3 +1,8 @@
+## 2.3.2
+
+- Replace 'pedantic' by 'lint'.
+- Refactoring to null safety according to the [official Dart migration guide](https://dart.dev/null-safety/migration-guide).
+
 ## 2.3.1
 
 - Update sdk constraints to null safety. Reference: [SDK Constraints](https://dart.dev/null-safety#constraints).
