@@ -4,11 +4,13 @@
 
 [![Null Safety](https://img.shields.io/badge/Null%20Safety-YES-brightgreen)](https://img.shields.io/badge/Null%20Safety-YES-brightgreen)
 
-👉 A light-weight Emoji 📦 for Flutter with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!
+👉 A light-weight Emoji 📦 for Flutter and Dart-based applications with all up-to-date emojis 😄. Made from 💯% ☕ with ❤️!
 
 Inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
 
 **Update: since v2.3.4+, support all emojis listed in [Unicode 13.0](https://unicode.org/versions/Unicode13.0.0/).**
+
+**NOTE: I initially created this package to support my Flutter apps. However, Dart is growing to support on more platforms, so starting from v2.4.0+, this package will be available to all types of Dart-based applications.**
 
 ## Installation
 
