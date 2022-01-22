@@ -1,3 +1,7 @@
+## 2.3.4
+
+- Leverage [`characters`](https://pub.dev/packages/characters) library to handle grapheme clusters/glyphs emojis.
+
 ## 2.3.3
 
 - Add new list of emojis.
