@@ -118,6 +118,9 @@ void main() {
     // NOTE: both :+1: and :thumbsup: represent same emoji 👍
     // When calling unemojify() only the latter one is mapped.
     expect(emojiParser.unemojify('I 👍 with him'), 'I :thumbsup: with him');
+
+    expect(emojiParser.unemojify('I ❤️‍🔥 Flutter so much'),
+        'I :heart_on_fire: Flutter so much');
   });
 
   test('emoji name includes some special characters', () {

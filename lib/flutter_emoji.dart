@@ -2,6 +2,8 @@ library flutter_emoji;
 
 import 'dart:convert';
 
+import 'package:characters/characters.dart';
+
 ///
 /// Constants defined for Emoji.
 ///
@@ -45,7 +47,7 @@ class EmojiUtil {
   ///
   static String ensureColons(String name) {
     var res = name;
-    if (!name.startsWith(EmojiConst.charColon, 0)) {
+    if ('${name[0]}' != EmojiConst.charColon) {
       res = EmojiConst.charColon + name;
     }
 
@@ -211,22 +213,23 @@ class EmojiParser {
   /// For example: 'I ❤️ Flutter' => 'I :heart: Flutter'
   ///
   String unemojify(String text) {
-    Iterable<Match> matches = REGEX_EMOJI.allMatches(text);
-    if (matches.isNotEmpty) {
-      var result = text;
-      matches.toList().forEach((m) {
-        if (hasEmoji(m.group(0))) {
-          result =
-              result.replaceAll(RegExp(m.group(0)!), getEmoji(m.group(0)).full);
+    if (text.isEmpty) return text;
 
-          /// Just a quick hack to clear graphical byte from emoji.
-          /// TODO: find better way to get through this tweak
-          result = result.replaceAll(
-              RegExp(EmojiConst.charNonSpacingMark), EmojiConst.charEmpty);
-        }
-      });
-      return result;
+    final characters = Characters(text);
+    final buffer = StringBuffer();
+    for (final character in characters) {
+      if (hasEmoji(character)) {
+        var result = character;
+        result = result.replaceAll(
+          character,
+          getEmoji(character).full,
+        );
+
+        buffer.write(result);
+      } else {
+        buffer.write(character);
+      }
     }
-    return text;
+    return buffer.toString();
   }
 }
