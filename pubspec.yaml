@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   characters: ^1.2.0
+  http: ^0.13.4
 
 dev_dependencies:
   lint: ^1.0.0

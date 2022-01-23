@@ -186,4 +186,16 @@ void main() {
     expect(emojiParser.parseEmojis(''), []);
     expect(emojiParser.parseEmojis('I ❤️ Flutter just like ☕'), ['❤️', '☕']);
   });
+
+  test('initServerData', () async {
+    var parser = EmojiParser(init: false);
+    expect(parser.hasName('coffee'), false);
+    expect(parser.getName('coffee'), Emoji.None);
+    expect(parser.parseEmojis('I ❤️ Flutter just like ☕'), []);
+
+    await parser.initServerData();
+    expect(parser.hasName('coffee'), true);
+    expect(parser.getName('coffee'), emojiCoffee);
+    expect(parser.parseEmojis('I ❤️ Flutter just like ☕'), ['❤️', '☕']);
+  });
 }
