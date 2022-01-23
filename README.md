@@ -101,6 +101,8 @@ await serverParser.initServerData(); // make sure to wrap in an `async` function
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
+**In any occasion that local dataset doesn't have the latest emojis, load server dataset instead. If it is still not working, please create an issue or pull request to the repo.**
+
 ## TODO
 
 Features coming to this package:
