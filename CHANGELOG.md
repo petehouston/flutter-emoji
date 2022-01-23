@@ -1,3 +1,12 @@
+## 2.4.0
+
+- Add `count()` to count number of emojis in the input.
+- Add `frequency()` to count frequency of a specific emoji.
+- Add `parseEmojis()` to get a list of emojis found from input.
+- Add `replace()` to replace a specific emoji by another emoji.
+- Add ability to fetch latest emoji dataset from server. This would be helpful when local provided emoji dataset not up-to-date.
+- Update spec to allow package to be used across all platforms Dart supports.
+
 ## 2.3.4
 
 - Leverage [`characters`](https://pub.dev/packages/characters) library to handle grapheme clusters/glyphs emojis.
