@@ -31,9 +31,9 @@ import 'package:flutter_emoji/flutter_emoji.dart';
 
 There are two main classes you need to know to handle Emoji text: `Emoji` and `EmojiParser`.
 
-Basically, you need to initialize an instance of `EmojiParser`.
+Basically, you need to initialize an instance of `EmojiParser` and call its methods.
 
-```
+```dart
 var parser = EmojiParser();
 var coffee = Emoji('coffee', '☕');
 var heart  = Emoji('heart', '❤️');
@@ -58,12 +58,47 @@ parser.getEmoji('❤️'); // returns: Emoji{name="heart", full=":heart:", code=
 
 parser.emojify('I :heart: :coffee:'); // returns: 'I ❤️ ☕'
 parser.unemojify('I ❤️ ☕'); // returns: 'I :heart: :coffee:'
+
+// Count number of present emojis
+parser.count('I ❤️ Flutter just like ☕'); // returns: 2
+
+// Count frequency of a specific emoji
+parser.frequency('I ❤️ Flutter just like ☕', '❤️'); // returns: 1
+
+// Replace a specific emoji by another emoji
+parser.replace('I ❤️ coffee', '❤️', '❤️‍🔥'); // returns: 'I ❤️‍🔥 coffee'
+
+// Get a list of all emojis from the input
+parser.parseEmojis('I ❤️ Flutter just like ☕'); // returns: ['❤️', '☕']
 ```
 
 All methods will return `Emoji.None` if emoji is not found, except these two `emojify()` and `unemojify()` that will return original input.
 
 ```
 parser.get('does_not_exist_emoji_name'); // returns: Emoji.None
+```
+
+### Initialize emoji data for `EmojiParser`
+
+There are two available datasets available you can choose to initialize for `EmojiParser`: **local** and **server**.
+
+```dart
+// to load local dataset
+var localParser1 = EmojiParser();
+var localParser2 = EmojiParser(init: false);
+localParser2.initLocalData();
+
+// to load server dataset
+// this will trigger an URL request to download latest emoji data
+var serverParser = EmojiParser(init: false);
+await serverParser.initServerData(); // make sure to wrap in an `async` function/method.
+```
+
+**NOTE: make sure to add Internet permission on Android.**
+
+```xml
+<!-- Required to fetch data from the internet. -->
+<uses-permission android:name="android.permission.INTERNET" />
 ```
 
 ## TODO
@@ -76,7 +111,7 @@ Features coming to this package:
 - [x] Find list of available emojis from a given text.
 - [x] Replace emoji by another one.
 - [x] Callback for additional formatting found emojis.
-- [ ] Auto-update emoji list.
+- [x] Ability to fetch latest emoji list.
 - [ ] Make extensible emoji matcher.
 
 ## License
