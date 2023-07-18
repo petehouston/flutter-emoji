@@ -13,3 +13,4 @@ ios/Runner/GeneratedPluginRegistrant.*
 *.iml
 
 coverage/
+pubspec.lock
