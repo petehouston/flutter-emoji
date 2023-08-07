@@ -12,6 +12,18 @@ Inspired from the [node-emoji](https://github.com/omnidan/node-emoji) package.
 
 **NOTE: I initially created this package to support my Flutter apps. However, Dart is growing to support on more platforms, so starting from v2.4.0+, this package will be available to all types of Dart-based applications.**
 
+## Work in progress
+
+I'm working on the new version of the package, it might or might not introduce breaking changes but I will try to maintain the compatibility in the API.
+
+Here are few upcoming update to the v3:
+
+- Support Unicode 15.1+ emojis.
+- Skin tone
+- Group (category) of the emojis
+- Emoji version
+- Few new methods for handling/manipulating emojis.
+
 ## Installation
 
 Add this into `pubspec.yaml`
