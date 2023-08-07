@@ -1,6 +1,7 @@
 ## 2.5.0
 
 - Update `http' dependency to `1.*`.
+- Update colon-syntax to equal sign for default values, https://github.com/dart-lang/language/issues/2357.
 
 ## 2.4.0
 
