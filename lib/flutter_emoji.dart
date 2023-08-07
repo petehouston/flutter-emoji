@@ -137,7 +137,7 @@ class EmojiParser {
   final Map<String, Emoji> _emojisByName = <String, Emoji>{};
   final Map<String?, Emoji> _emojisByCode = <String, Emoji>{};
 
-  EmojiParser({bool init: true}) {
+  EmojiParser({bool init = true}) {
     if (init == true) {
       initLocalData();
     }
