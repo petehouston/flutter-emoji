@@ -1,3 +1,7 @@
+## 2.5.0
+
+- Update `http' dependency to `1.*`.
+
 ## 2.4.0
 
 - Add `count()` to count number of emojis in the input.
