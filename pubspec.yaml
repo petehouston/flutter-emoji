@@ -1,6 +1,6 @@
 name: flutter_emoji
 description: "A light-weight Emoji package for Flutter with all up-to-date emojis, made with love and just enjoy!"
-version: 2.5.0
+version: 2.5.1
 homepage: "https://github.com/petehouston/flutter-emoji"
 
 environment:

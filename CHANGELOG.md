@@ -1,3 +1,7 @@
+## 2.5.1
+
+- Add few emojis to preset json data source.
+
 ## 2.5.0
 
 - Update `http' dependency to `1.*`.
