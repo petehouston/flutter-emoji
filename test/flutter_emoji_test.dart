@@ -168,6 +168,18 @@ void main() {
     expect(emojiParser.replace('I ❤️ coffee', '❤️', '❤️‍🔥'), 'I ❤️‍🔥 coffee');
   });
 
+  test('replaceAll emojis', () {
+    expect(emojiParser.replaceAll('I ❤️ coffee', '??'), 'I ?? coffee');
+    expect(emojiParser.replaceAll('I ❤️ coffee', ''), 'I coffee');
+    expect(emojiParser.replaceAll('I ❤️ coffee', '❤️'), 'I ❤️ coffee');
+  });
+
+  test('remove emojis', () {
+    expect(emojiParser.removeEmojis('I ❤️🔥 coffee'), 'I coffee');
+    expect(emojiParser.removeEmojis('I ❤️ coffee'), 'I coffee');
+    expect(emojiParser.removeEmojis('I love coffee 🔥'), 'I love coffee ');
+  });
+
   test('parse Emojis', () {
     // var equalList = (var list1, var list2) {
     //   if (!(list1 is List && list2 is List) || list1.length != list2.length) {
