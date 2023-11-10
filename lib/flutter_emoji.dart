@@ -293,7 +293,7 @@ class EmojiParser {
   ///
   /// For example: replace('I ❤️ coffee', '??') => 'I ?? coffee'
   ///
-  String? replaceAll(final String text, final String toSymbol) {
+  String replaceAll(final String text, final String toSymbol) {
     if (toSymbol.isEmpty){
       return removeEmojis(text);
     }
@@ -304,7 +304,7 @@ class EmojiParser {
   /// Remove all emojis from the input text, removing double spaces
   ///
   /// For example: removeEmojis('I ❤️ Flutter just like ☕') => 'I Flutter just like '
-  String? removeEmojis(final String text, {removeDoubleSpaces = true}) {
+  String removeEmojis(final String text, {removeDoubleSpaces = true}) {
     final result =  _mapEmojis(text, (String _) => '');
     if (removeDoubleSpaces) {
       return result.replaceAll(RegExp(r'\s\s+'), ' ');
