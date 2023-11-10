@@ -213,13 +213,12 @@ class EmojiParser {
         var _e = EmojiUtil.stripColons(m.group(0));
         if (_e == null || m.group(0) == null) continue;
         if (hasName(_e)) {
-          var pattern = RegExp.escape(m.group(0)!);
+          final pattern = RegExp.escape(m.group(0)!);
           var formattedCode = get(_e).code;
           if (fnFormat != null) {
             formattedCode = fnFormat(formattedCode);
           }
-          result =
-              result.replaceAll(RegExp(pattern, unicode: true), formattedCode);
+          result = result.replaceAll(RegExp(pattern, unicode: true), formattedCode);
         }
       }
       return result;
@@ -234,24 +233,7 @@ class EmojiParser {
   /// For example: 'I ❤️ Flutter' => 'I :heart: Flutter'
   ///
   String unemojify(String text) {
-    if (text.isEmpty) return text;
-
-    final characters = Characters(text);
-    final buffer = StringBuffer();
-    for (final character in characters) {
-      if (hasEmoji(character)) {
-        var result = character;
-        result = result.replaceAll(
-          character,
-          getEmoji(character).full,
-        );
-
-        buffer.write(result);
-      } else {
-        buffer.write(character);
-      }
-    }
-    return buffer.toString();
+    return _mapEmojis(text, (final String emoji) => emoji.replaceAll(emoji, getEmoji(emoji).full));
   }
 
   ///
@@ -307,6 +289,30 @@ class EmojiParser {
   }
 
   ///
+  /// Replace an emoji by a symbol.
+  ///
+  /// For example: replace('I ❤️ coffee', '??') => 'I ?? coffee'
+  ///
+  String replaceAll(final String text, final String toSymbol) {
+    if (toSymbol.isEmpty){
+      return removeEmojis(text);
+    }
+    return _mapEmojis(text, (String _) => toSymbol);
+  }
+
+  ///
+  /// Remove all emojis from the input text, removing double spaces
+  ///
+  /// For example: removeEmojis('I ❤️ Flutter just like ☕') => 'I Flutter just like '
+  String removeEmojis(final String text, {removeDoubleSpaces = true}) {
+    final result =  _mapEmojis(text, (String _) => '');
+    if (removeDoubleSpaces) {
+      return result.replaceAll(RegExp(r'\s\s+'), ' ');
+    }
+    return result;
+  }
+
+  ///
   /// Return a list of emojis found in the input text
   ///
   /// For example: parseEmojis('I ❤️ Flutter just like ☕') => ['❤️', '☕']
@@ -321,5 +327,24 @@ class EmojiParser {
       }
     }
     return result;
+  }
+
+  ///
+  /// When an emoji is found, call the transform function
+  ///
+  String _mapEmojis(final String text, Function(String) transform) {
+    if (text.isEmpty) return "";
+
+    final characters = Characters(text);
+    final buffer = StringBuffer();
+    for (final character in characters) {
+      if (hasEmoji(character)) {
+        final result = character;
+        buffer.write(result.replaceAll(character, transform(character)));
+      } else {
+        buffer.write(character);
+      }
+    }
+    return buffer.toString();
   }
 }
